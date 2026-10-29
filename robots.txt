@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://gabrielvillarreta555-code.github.io/sitemap.xml
