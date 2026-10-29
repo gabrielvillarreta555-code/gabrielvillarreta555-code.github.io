@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Blue Lab Studios</title>
-<meta name="description" content="Blue Lab Studios, estudio de Gabriel Villarreta, creador de Despierta.">
+<meta name="description" content="Blue Lab Studios, estudio de Gabriel Villarreta, creador de Despierta y Calcula Panamá.">
 <style>
 :root{--bg:#0f1024;--bg2:#1b1840;--text:#f1eefb;--soft:#bdb6d8;--line:rgba(255,255,255,.12);--accent:#9fb8ff;--card:rgba(255,255,255,.05)}
 *{box-sizing:border-box}
@@ -22,6 +22,8 @@ h2{font-size:1.1rem;color:var(--soft);font-weight:600;margin:3rem 0 1rem}
 .app{display:block;padding:1.2rem 1.25rem;border-radius:16px;border:1px solid var(--line);background:var(--card);color:var(--text);text-decoration:none}
 .app strong{display:block;font-size:1.2rem}
 .app span{color:var(--soft)}
+.app em{display:block;font-style:normal;font-size:.8rem;letter-spacing:.06em;text-transform:uppercase;color:var(--accent);margin-bottom:.2rem}
+.list{display:grid;gap:.9rem}
 footer{margin-top:3.5rem;color:var(--soft);font-size:.9rem;border-top:1px solid var(--line);padding-top:1rem}
 footer a{color:var(--accent)}
 </style>
@@ -31,15 +33,24 @@ footer a{color:var(--accent)}
 <p class="brand">Blue Lab Studios</p>
 
 <h1>Gabriel Villarreta</h1>
-<p class="role">Creador de Despierta | Blue Lab Studios</p>
-<!-- El botón de LinkedIn se activa al poner la dirección exacta en href y quitar el atributo hidden. -->
-<a class="btn" id="linkedin" href="#" hidden rel="me noopener">LinkedIn</a>
+<p class="role">Creador de Despierta y Calcula Panamá | Blue Lab Studios</p>
+<a class="btn" id="linkedin" href="https://www.linkedin.com/in/gabriel-villarreta-1aa114441/" rel="me noopener" target="_blank">
+<svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path d="M4.98 3.5A2.5 2.5 0 1 1 5 8.5a2.5 2.5 0 0 1-.02-5zM3 9.75h4V21H3zM9.5 9.75h3.8v1.6h.05c.53-.95 1.83-1.95 3.77-1.95 4.03 0 4.78 2.5 4.78 5.75V21h-4v-5.1c0-1.22-.02-2.78-1.77-2.78-1.77 0-2.04 1.32-2.04 2.69V21h-4z"/></svg>
+LinkedIn</a>
 
-<h2>Aplicaciones</h2>
+<h2>Proyectos</h2>
+<div class="list">
 <a class="app" href="despierta/">
+<em>App para Android</em>
 <strong>Despierta</strong>
-<span>Alarmas para turnos rotativos, para Android.</span>
+<span>Alarmas para turnos rotativos.</span>
 </a>
+<a class="app" href="https://calculapanama.com/" rel="noopener" target="_blank">
+<em>Sitio web</em>
+<strong>Calcula Panamá</strong>
+<span>Calculadoras laborales gratuitas: salario neto, décimo tercer mes, vacaciones y liquidación.</span>
+</a>
+</div>
 
 <footer>
 <p><a href="despierta/privacidad/">Política de privacidad de Despierta</a></p>
