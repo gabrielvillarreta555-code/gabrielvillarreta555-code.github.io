@@ -233,6 +233,17 @@ footer a{color:var(--soft)}
 @media(max-width:920px){.blue-stage{min-height:440px}.blue-portrait{width:min(62%,270px)}.blue-intro{grid-template-columns:auto 1fr}.blue-intro-link{grid-column:2}}
 @media(max-width:360px){.nav .wrap{gap:.4rem}.logo{font-size:.9rem;gap:.4rem}.logo svg{width:28px;height:28px}.links a.btn-main{padding:.5rem .7rem}}
 @media(max-width:600px){.blue-stage{min-height:390px}.blue-portrait{width:min(62%,235px)}.blue-caption{right:0;bottom:4%}.blue-intro{grid-template-columns:1fr;gap:1rem;padding:1.5rem}.blue-intro-link{grid-column:1}.experiments{grid-template-columns:1fr}.project .btn{max-width:100%}}
+
+/* Blue cobra vida con expresiones de la referencia original. */
+.blue-expression{width:74px;height:80px;flex:none;border-radius:14px;background:#07142e url("img/blue-referencia.jpg") no-repeat -507px -500px;background-size:1280px 853px}
+@media (prefers-reduced-motion:no-preference){
+  .blue-portrait{animation:blue-float 6s ease-in-out infinite}
+  .blue-stage-glow{animation:blue-glow 6s ease-in-out infinite}
+  .blue-expression{animation:blue-expressions 12s steps(1,end) infinite}
+  @keyframes blue-float{0%,100%{transform:translateY(0) rotate(0)}50%{transform:translateY(-12px) rotate(1.5deg)}}
+  @keyframes blue-glow{0%,100%{opacity:.75}50%{opacity:1}}
+  @keyframes blue-expressions{0%,100%{background-position:-507px -500px}25%{background-position:-600px -500px}50%{background-position:-689px -500px}75%{background-position:-1167px -500px}}
+}
 </style>
 </head>
 <body>
@@ -276,7 +287,7 @@ footer a{color:var(--soft)}
 <div class="blue-stage">
 <div class="blue-stage-glow" aria-hidden="true"></div>
 <div class="blue-portrait" role="img" aria-label="Blue, una pequeña criatura luminosa de energía azul con conexiones neuronales"></div>
-<div class="blue-caption"><span class="blue-caption-dot" aria-hidden="true">✦</span><div><strong>Hola, soy Blue</strong><small>Curiosidad que conecta ideas</small></div></div>
+<div class="blue-caption"><span class="blue-expression" aria-hidden="true"></span><div><strong>Hola, soy Blue</strong><small>Curiosidad que conecta ideas</small></div></div>
 </div>
 </section>
 
