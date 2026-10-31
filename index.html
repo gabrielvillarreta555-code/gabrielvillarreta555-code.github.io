@@ -3,13 +3,13 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Blue Lab Studios · Páginas web y herramientas a medida</title>
+<title>Blue Lab Studios · Tecnología, creatividad e inteligencia</title>
 <link rel="canonical" href="https://gabrielvillarreta555-code.github.io/">
-<meta name="description" content="Blue Lab Studios, estudio de Gabriel Villarreta: páginas web rápidas para negocios, herramientas web a medida y apps Android. Creador de Calcula Panamá y Despierta.">
+<meta name="description" content="Blue Lab Studios crea páginas web, aplicaciones y herramientas como Calcula Panamá, Vélix Blue y DocBlue. Tecnología, creatividad e inteligencia.">
 <meta name="theme-color" content="#070b1d">
 <meta property="og:site_name" content="Blue Lab Studios">
-<meta property="og:title" content="Blue Lab Studios · Páginas web y herramientas a medida">
-<meta property="og:description" content="Páginas web rápidas, herramientas a medida y apps Android. Estudio de Gabriel Villarreta, creador de Calcula Panamá y Despierta.">
+<meta property="og:title" content="Blue Lab Studios · Tecnología, creatividad e inteligencia">
+<meta property="og:description" content="Conoce los productos y servicios de Blue Lab Studios: herramientas web, aplicaciones e investigación en inteligencia artificial.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://gabrielvillarreta555-code.github.io/">
 <link rel="preload" href="fonts/plus-jakarta-sans.woff2" as="font" type="font/woff2" crossorigin>
@@ -287,6 +287,20 @@ footer{margin-top:5rem;border-top:1px solid var(--line);padding:2rem 0 2.5rem;co
 footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:1rem}
 footer p{margin:.2rem 0}
 footer a{color:var(--soft)}
+
+/* Blue: ilustración de la referencia y proyectos experimentales */
+.blue-stage{position:relative;isolation:isolate;display:grid;place-items:center;min-height:510px}
+.blue-stage-glow{position:absolute;width:80%;aspect-ratio:1;border-radius:50%;background:radial-gradient(circle,rgba(39,122,255,.26),transparent 68%);filter:blur(24px);z-index:-1}
+.blue-portrait{width:min(72%,295px);aspect-ratio:352/577;border-radius:38% 38% 32% 32%;background-image:url("img/blue-referencia.jpg");background-size:364% 148%;background-position:18% 9.4%;background-repeat:no-repeat;-webkit-mask-image:linear-gradient(to right,transparent,#000 14%,#000 88%,transparent);mask-image:linear-gradient(to right,transparent,#000 14%,#000 88%,transparent);box-shadow:0 0 60px rgba(30,119,255,.18)}
+.blue-caption{position:absolute;right:0;bottom:9%;display:flex;align-items:center;gap:.7rem;padding:.8rem 1rem;border:1px solid var(--line2);border-radius:16px;background:#0a1531;box-shadow:0 14px 30px #0005}
+.blue-caption-dot{display:grid;place-items:center;width:2rem;height:2rem;border-radius:10px;background:var(--grad);color:white}
+.blue-caption strong,.blue-caption small{display:block}.blue-caption strong{font-size:.9rem}.blue-caption small{font-size:.75rem;color:var(--soft)}
+.blue-intro{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:1.6rem;margin:1rem 0 0;padding:1.8rem 2rem;border:1px solid var(--line2);border-radius:var(--radius);background:linear-gradient(115deg,rgba(47,123,255,.14),rgba(255,255,255,.02))}
+.blue-intro-symbol{display:grid;place-items:center;width:3.5rem;height:3.5rem;border-radius:16px;color:#bde5ff;background:var(--grad);font-size:1.7rem}.blue-intro h2{margin:0 0 .5rem}.blue-intro p:last-child{color:var(--soft);max-width:56rem;margin:0}.blue-intro-link{white-space:nowrap;font-weight:700;text-decoration:none;color:var(--blue3)}
+.experiments{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1.2rem}.experiment{padding:1.8rem;border:1px solid var(--line);border-radius:var(--radius);background:var(--panel)}.experiment h3{font-size:1.5rem;margin:0 0 .6rem}.experiment p{color:var(--soft);margin:0 0 1.2rem}
+@media(max-width:920px){.blue-stage{min-height:440px}.blue-portrait{width:min(62%,270px)}.blue-intro{grid-template-columns:auto 1fr}.blue-intro-link{grid-column:2}}
+@media(max-width:360px){.nav .wrap{gap:.4rem}.logo{font-size:.9rem;gap:.4rem}.logo svg{width:28px;height:28px}.links a.btn-main{padding:.5rem .7rem}}
+@media(max-width:600px){.blue-stage{min-height:390px}.blue-portrait{width:min(62%,235px)}.blue-caption{right:0;bottom:4%}.blue-intro{grid-template-columns:1fr;gap:1rem;padding:1.5rem}.blue-intro-link{grid-column:1}.experiments{grid-template-columns:1fr}.project .btn{max-width:100%}}
 </style>
 </head>
 <!--
@@ -323,8 +337,8 @@ footer a{color:var(--soft)}
 <div>
 <p class="pill"><i aria-hidden="true"></i> Ideas · Tecnología · Herramientas</p>
 <h1 id="t-hero" class="brand-title">Blue Lab<br><span class="grad">Studios</span></h1>
-<p class="tagline">Convertimos ideas en herramientas que realmente usas.</p>
-<p class="lead">Páginas web rápidas para negocios, herramientas a medida y apps Android. Las diseño y desarrollo con el mismo cuidado que pongo en mis propios productos.</p>
+<p class="tagline">Tecnología, creatividad e inteligencia.</p>
+<p class="lead">Creamos páginas web, herramientas y aplicaciones que convierten buenas ideas en soluciones útiles para personas y negocios.</p>
 <div class="actions">
 <a class="btn btn-main" href="#contacto">Cuéntame tu proyecto
 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
@@ -337,14 +351,17 @@ footer a{color:var(--soft)}
 </ul>
 </div>
 
-<div class="stage" aria-hidden="true">
-<svg class="net" viewBox="0 0 600 600" preserveAspectRatio="xMidYMid slice"><g stroke="#60a5fa" stroke-width=".8" opacity=".55"><line x1="272" y1="335" x2="305" y2="351"/><line x1="272" y1="335" x2="311" y2="381"/><line x1="546" y1="280" x2="501" y2="234"/><line x1="546" y1="280" x2="454" y2="242"/><line x1="305" y1="351" x2="311" y2="381"/><line x1="117" y1="307" x2="27" y2="279"/><line x1="117" y1="307" x2="65" y2="186"/><line x1="375" y1="470" x2="389" y2="367"/><line x1="375" y1="470" x2="300" y2="394"/><line x1="65" y1="186" x2="120" y2="150"/><line x1="65" y1="186" x2="10" y2="132"/><line x1="63" y1="480" x2="117" y2="307"/><line x1="63" y1="480" x2="27" y2="279"/><line x1="412" y1="34" x2="316" y2="45"/><line x1="412" y1="34" x2="275" y2="171"/><line x1="580" y1="570" x2="589" y2="588"/><line x1="580" y1="570" x2="566" y2="501"/><line x1="389" y1="367" x2="311" y2="381"/><line x1="389" y1="367" x2="305" y2="351"/><line x1="101" y1="19" x2="178" y2="51"/><line x1="101" y1="19" x2="120" y2="150"/><line x1="316" y1="45" x2="275" y2="171"/><line x1="120" y1="150" x2="193" y2="143"/><line x1="27" y1="279" x2="65" y2="186"/><line x1="266" y1="499" x2="300" y2="394"/><line x1="266" y1="499" x2="375" y2="470"/><line x1="311" y1="381" x2="300" y2="394"/><line x1="300" y1="394" x2="305" y2="351"/><line x1="275" y1="171" x2="193" y2="143"/><line x1="589" y1="588" x2="566" y2="501"/><line x1="497" y1="421" x2="566" y2="501"/><line x1="497" y1="421" x2="389" y2="367"/><line x1="178" y1="51" x2="193" y2="143"/><line x1="454" y1="242" x2="501" y2="234"/><line x1="10" y1="132" x2="120" y2="150"/></g><g fill="#93c5fd"><circle cx="272" cy="335" r="1.6"/><circle cx="546" cy="280" r="2"/><circle cx="305" cy="351" r="2"/><circle cx="117" cy="307" r="2.6"/><circle cx="375" cy="470" r="2"/><circle cx="65" cy="186" r="2"/><circle cx="63" cy="480" r="1.6"/><circle cx="412" cy="34" r="2.6"/><circle cx="580" cy="570" r="2.6"/><circle cx="389" cy="367" r="1.6"/><circle cx="101" cy="19" r="2.6"/><circle cx="316" cy="45" r="2"/><circle cx="120" cy="150" r="2"/><circle cx="27" cy="279" r="1.6"/><circle cx="266" cy="499" r="2"/><circle cx="311" cy="381" r="2"/><circle cx="300" cy="394" r="1.6"/><circle cx="275" cy="171" r="2"/><circle cx="589" cy="588" r="1.6"/><circle cx="497" cy="421" r="1.6"/><circle cx="193" cy="143" r="1.6"/><circle cx="178" cy="51" r="2.6"/><circle cx="454" cy="242" r="1.6"/><circle cx="501" cy="234" r="1.6"/><circle cx="566" cy="501" r="1.6"/><circle cx="10" cy="132" r="2"/></g></svg>
-<div class="phone p2"><img src="img/rio-aventura.webp" width="600" height="1298" alt=""></div>
-<div class="phone p1"><img src="img/calcula-panama.webp" width="600" height="1298" alt="" fetchpriority="high"></div>
-<div class="chip c1"><span class="dot"><svg width="16" height="16" viewBox="0 0 24 24" fill="#fff"><path d="M13 2 4 14h7l-1 8 9-12h-7z"/></svg></span><span>Carga rápida<small>Optimizada para móvil</small></span></div>
-<div class="chip c2"><span class="dot"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 5 6v5.5c0 4.4 3 7.6 7 9.5 4-1.9 7-5.1 7-9.5V6z"/></svg></span><span>Sin rastreadores<small>Respeta a tus clientes</small></span></div>
-<div class="chip c3"><span class="dot"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-3-6.7L21 8M21 3v5h-5"/></svg></span><span>Avances en tu teléfono<small>Durante todo el proyecto</small></span></div>
+<div class="blue-stage">
+<div class="blue-stage-glow" aria-hidden="true"></div>
+<div class="blue-portrait" role="img" aria-label="Blue, una pequeña criatura luminosa de energía azul con conexiones neuronales"></div>
+<div class="blue-caption"><span class="blue-caption-dot" aria-hidden="true">✦</span><div><strong>Hola, soy Blue</strong><small>Curiosidad que conecta ideas</small></div></div>
 </div>
+</section>
+
+<section class="blue-intro" id="blue" aria-labelledby="t-blue">
+<div class="blue-intro-symbol" aria-hidden="true">✳</div>
+<div><p class="kicker">La esencia del estudio</p><h2 id="t-blue">Conoce a Blue 💙</h2><p>Blue es la pequeña inteligencia de energía azul que representa nuestra curiosidad por el conocimiento, la tecnología y la imaginación. Nos acompaña mientras construimos nuevas herramientas y exploramos el futuro de la inteligencia artificial.</p></div>
+<a class="blue-intro-link" href="#investigacion">Conocer Blue IA <span aria-hidden="true">↗</span></a>
 </section>
 
 <section class="vision" aria-labelledby="t-vision">
@@ -397,11 +414,7 @@ footer a{color:var(--soft)}
 </section>
 
 <section id="proyectos" aria-labelledby="t-proyectos">
-<div class="head">
-<p class="kicker">Proyectos</p>
-<h2 id="t-proyectos">Productos reales, no plantillas</h2>
-<p>Antes de trabajar para clientes, construyo mis propias herramientas. Son la mejor muestra de cómo trabajo.</p>
-</div>
+<div class="head"><p class="kicker">Nuestros productos</p><h2 id="t-proyectos">Ideas que ya están en tus manos.</h2><p>Herramientas y aplicaciones que nacieron de la curiosidad y resuelven necesidades reales.</p></div>
 <div class="work">
 <article class="project">
 <div class="shot"><img src="img/calcula-panama.webp" width="600" height="1298" loading="lazy" alt="Portada de Calcula Panamá en un teléfono: «Entiende tu salario antes de que llegue la quincena»"></div>
@@ -413,6 +426,14 @@ footer a{color:var(--soft)}
 <a class="btn" href="https://calculapanama.com/" rel="noopener" target="_blank">Visitar calculapanama.com
 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
 </div>
+</article>
+
+<article class="project">
+<div class="shot"><img src="img/velix-blue.webp" width="390" height="844" loading="lazy" alt="Interfaz móvil de Vélix Blue: herramientas digitales para transformar imágenes"></div>
+<div><div class="meta"><span class="badge live">Publicado</span><span class="badge">Herramientas web</span></div>
+<h3>Vélix Blue</h3><p>Elimina fondos con IA, comprime, convierte, redimensiona y recorta imágenes desde el navegador. Tus imágenes se procesan en tu dispositivo.</p>
+<ul class="tags"><li>Edición de imágenes</li><li>IA en el navegador</li><li>Sin cuenta</li></ul>
+<a class="btn btn-main" href="https://velixblue.com/">Abrir Vélix Blue <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a></div>
 </article>
 
 <article class="project">
@@ -431,26 +452,6 @@ footer a{color:var(--soft)}
 </article>
 
 <article class="project">
-<div class="shot"><img src="img/pixeltools.webp" width="600" height="1298" loading="lazy" alt="Portada de PixelTools en un teléfono: «Tus imágenes, más ligeras. Tu privacidad, intacta»"></div>
-<div>
-<div class="meta"><span class="badge soon">Próximamente</span><span class="badge">Herramientas web</span></div>
-<h3>PixelTools</h3>
-<p>Compresión de imágenes por lotes y eliminación de fondos con inteligencia artificial que se ejecuta en el propio teléfono: las fotos nunca se suben a un servidor. Funciona incluso sin conexión.</p>
-<ul class="tags"><li>React</li><li>IA en el navegador</li><li>App instalable</li><li>Sin conexión</li></ul>
-</div>
-</article>
-
-<article class="project">
-<div class="shot"><img src="img/rio-aventura.webp" width="600" height="1298" loading="lazy" alt="Partida de Río Aventura: una barca rema río abajo entre rocas y árboles"></div>
-<div>
-<div class="meta"><span class="badge soon">En desarrollo</span><span class="badge">Juego Android</span></div>
-<h3>Río Aventura</h3>
-<p>Juego sin conexión: esquiva rocas y troncos río abajo, suma puntos y supera tu récord. Con corriente animada, estela y salpicaduras.</p>
-<ul class="tags"><li>Android</li><li>Canvas 2D</li><li>Sin conexión</li></ul>
-</div>
-</article>
-
-<article class="project">
 <div class="shot art">
 <div class="clock"><svg width="52" height="52" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="13" r="7.5"/><path d="M12 9.5V13l2.5 2M5 3.5 2.5 6M19 3.5 21.5 6"/></svg></div>
 <p>Alarmas para<br>turnos rotativos</p>
@@ -464,6 +465,14 @@ footer a{color:var(--soft)}
 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
 </div>
 </article>
+</div>
+</section>
+
+<section id="investigacion" aria-labelledby="t-investigacion">
+<div class="head"><p class="kicker">Explorando lo que viene</p><h2 id="t-investigacion">Ideas en movimiento.</h2><p>Un espacio para experimentar, aprender y construir nuevas posibilidades.</p></div>
+<div class="experiments">
+<article class="experiment"><div class="meta"><span class="badge soon">Investigación y desarrollo</span><span class="badge">Inteligencia artificial</span></div><h3>Blue IA</h3><p>Un experimento de conversación con un modelo abierto en Google Colab. Una exploración de cómo Blue podría acompañarnos mientras aprendemos.</p><a class="btn" href="https://github.com/gabrielvillarreta555-code/blue-ia">Ver el proyecto Blue IA <span aria-hidden="true">↗</span></a></article>
+<article class="experiment"><div class="meta"><span class="badge soon">En desarrollo</span><span class="badge">Juego Android</span></div><h3>Río Aventura</h3><p>Un juego sin conexión para remar río abajo, esquivar obstáculos y superar tu récord.</p></article>
 </div>
 </section>
 
