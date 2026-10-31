@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="theme-color" content="#070b1d">
+  <title>Blue Investigador · Demostración | Blue Lab Studios</title>
+  <link rel="stylesheet" href="demo.css">
+  <script type="module" src="demo.mjs"></script>
+</head>
+<body>
+  <div class="page">
+    <header class="header wrap"><a class="brand" href="../../"><span class="mark" aria-hidden="true">✦</span> <span>Blue Lab Studios</span></a><span class="header-label">LABORATORIO / BLUE INTERACTIVE</span></header>
+    <main class="wrap">
+      <section class="intro" aria-labelledby="title">
+        <p class="eyebrow"><span></span> PROTOTIPO INTERACTIVO</p>
+        <h1 id="title">Blue <em>Investigador.</em></h1>
+        <p>Una primera mirada a cómo Blue podría acompañar el proceso creativo.</p>
+        <div class="demo-notice"><strong>Una demostración visual.</strong> El proceso está simulado: Blue no analiza la imagen y no se envía ningún archivo.</div>
+      </section>
+      <section class="workspace" aria-label="Demostración de Blue Investigador">
+        <div class="image-card">
+          <div class="card-top"><div><span class="card-kicker">01 / IMAGEN DE PRUEBA</span><h2>Un paisaje para explorar</h2></div><span class="file-pill">EJEMPLO</span></div>
+          <div class="sample" id="sample" aria-label="Ilustración de prueba de un paisaje de montañas y una luna" role="img">
+            <svg viewBox="0 0 640 400" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><defs><linearGradient id="sky" x2="0" y2="1"><stop stop-color="#10255b"/><stop offset="1" stop-color="#418cf3"/></linearGradient><linearGradient id="lake" x2="0" y2="1"><stop stop-color="#256eb5"/><stop offset="1" stop-color="#081b42"/></linearGradient></defs><rect width="640" height="400" fill="url(#sky)"/><circle cx="478" cy="95" r="40" fill="#d7eeff" opacity=".95"/><path d="M0 260 156 102 253 222 365 115 565 267 640 197 640 400 0 400Z" fill="#0c2855"/><path d="M0 284 116 197 218 275 332 165 455 278 570 190 640 255 640 400 0 400Z" fill="#123d70"/><path d="M0 287c126-20 189 28 306 3s207-7 334 5v105H0Z" fill="url(#lake)"/><path d="M270 325h160m-214 20h120m39 21h130" stroke="#b6e7ff" stroke-opacity=".35" stroke-width="3" stroke-linecap="round"/><g fill="#d7efff" opacity=".7"><circle cx="100" cy="75" r="2"/><circle cx="213" cy="60" r="2"/><circle cx="340" cy="101" r="2"/><circle cx="566" cy="63" r="2"/></g></svg>
+            <div class="scan" aria-hidden="true"></div><div class="scan-point point-one" aria-hidden="true">✦</div><div class="scan-point point-two" aria-hidden="true">✦</div><div class="sample-label">PAISAJE · ILUSTRACIÓN</div>
+          </div>
+          <p class="image-note">Esta imagen está incluida en la página para probar la animación.</p>
+        </div>
+        <div class="blue-card">
+          <div class="card-top"><div><span class="card-kicker">02 / TU COMPAÑERO</span><h2>Blue está aquí</h2></div><span class="sparkle" aria-hidden="true">✦</span></div>
+          <div class="character-stage"><div class="orbital" aria-hidden="true"></div><blue-character id="blue" expression="curioso"></blue-character><span class="stage-label">BLUE INVESTIGADOR</span></div>
+          <div class="status-box"><span class="status-dot" aria-hidden="true"></span><p id="message" role="status" aria-live="polite">Estoy listo para explorar esta imagen de prueba.</p></div>
+          <div class="progress" id="progress" role="progressbar" aria-label="Demostración en curso, duración no determinada" hidden><div class="progress-bar"></div></div>
+          <div class="actions"><button class="button primary" id="start" type="button">Iniciar demostración <span aria-hidden="true">↗</span></button><button class="button secondary" id="simulate-error" type="button">Simular error</button><button class="button secondary" id="reset" type="button" hidden>Volver a empezar</button></div>
+        </div>
+      </section>
+      <section class="expressions" aria-labelledby="expressions-title"><div><span class="card-kicker">03 / PERSONALIDAD DE BLUE</span><h2 id="expressions-title">Explora sus expresiones</h2><p>Elige un estado para verlo en el personaje. Durante la demostración, Blue cambia según la etapa simulada.</p></div><div class="expression-control"><label for="expression">Expresión de Blue</label><select id="expression"><option value="normal">Normal</option><option value="feliz">Feliz</option><option value="curioso" selected>Curioso</option><option value="sorprendido">Sorprendido</option><option value="pensando">Pensando</option><option value="concentrado">Concentrado</option><option value="triste">Triste</option><option value="emocionado">Emocionado</option><option value="investigador">Investigador</option></select></div></section>
+    </main>
+    <footer class="wrap"><span>✦ BLUE LAB STUDIOS</span><span>Un pequeño paso hacia nuevas ideas. 💙</span></footer>
+  </div>
+</body></html>
