@@ -1,0 +1,24 @@
+:host { display: block; width: 190px; height: 210px; }
+.character { position: relative; display: grid; place-items: center; width: 100%; height: 100%; isolation: isolate; }
+.aura { position: absolute; inset: 16% 7%; background: radial-gradient(circle,#118dff78,transparent 70%); filter: blur(18px); z-index: -1; }
+.face-window { width: 148px; height: 160px; overflow: hidden; border-radius: 30%; }
+.face { width: 74px; height: 80px; background-repeat: no-repeat; background-size: 1280px 853px; background-position: -507px -500px; transform: scale(2); transform-origin: top left; }
+.character[data-expression='feliz'] .face { background-position: -600px -500px; }
+.character[data-expression='curioso'] .face { background-position: -689px -500px; }
+.character[data-expression='sorprendido'] .face { background-position: -783px -500px; }
+.character[data-expression='pensando'] .face { background-position: -878px -500px; }
+.character[data-expression='concentrado'] .face, .character[data-expression='investigador'] .face { background-position: -973px -500px; }
+.character[data-expression='triste'] .face { background-position: -1068px -500px; }
+.character[data-expression='emocionado'] .face { background-position: -1167px -500px; }
+.glasses { position: absolute; width: 132px; left: 29px; top: 87px; opacity: 0; filter: drop-shadow(0 0 5px #5ee6ff); pointer-events: none; }
+.character[data-expression='investigador'] .glasses { opacity: 1; }
+.success { position: absolute; right: 7px; bottom: 21px; display: grid; place-items: center; width: 36px; height: 36px; border-radius: 50%; background: #c3fbef; color: #075947; font: 800 22px system-ui, sans-serif; box-shadow: 0 0 18px #55ffd590; opacity: 0; }
+.character[data-success='true'] .success { opacity: 1; }
+@media (prefers-reduced-motion: no-preference) {
+  .character { animation: blue-float 4s ease-in-out infinite; }
+  .character[data-expression='investigador'] .glasses { animation: blue-lenses-in .45s ease-out; }
+  .character[data-expression='investigador'] .lens-glint { animation: blue-look 1.8s ease-in-out infinite alternate; }
+  @keyframes blue-lenses-in { from { opacity: 0; transform: translateY(-15px); } to { opacity: 1; transform: translateY(0); } }
+  @keyframes blue-float { 50% { transform: translateY(-7px); } }
+  @keyframes blue-look { to { transform: translateX(19px); } }
+}
