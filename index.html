@@ -263,6 +263,16 @@ footer a{color:var(--soft)}
 .universe-links{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:.6rem}.universe-links a{display:flex;flex-direction:column;gap:.25rem;min-height:70px;padding:.8rem;border:1px solid var(--line);border-radius:14px;background:rgba(7,11,29,.45);color:var(--text);text-decoration:none}.universe-links a:hover{border-color:var(--blue2)}.universe-links strong{font-size:.88rem}.universe-links span{font-size:.75rem;color:var(--soft);line-height:1.4}
 @media(max-width:700px){.universe-links{grid-template-columns:repeat(2,minmax(0,1fr))}.universe{padding:1rem}}
 @media(max-width:350px){.universe-links{grid-template-columns:1fr}}
+
+/* Blue completo acompaña la navegación y los mensajes siguen la sección visible. */
+.blue-companion-trigger{padding:0;gap:4px;border:0;background:transparent;box-shadow:none}
+.blue-companion-trigger:hover{background:transparent}
+.blue-companion-avatar{width:78px;height:94px;overflow:visible;border:0;border-radius:0;background:transparent}
+.blue-companion-avatar img{display:block;width:100%;height:100%;object-fit:contain}
+.blue-companion-label{padding:10px 12px;border:1px solid rgba(137,195,255,.45);border-radius:16px;background:#0c1b3a;box-shadow:0 8px 25px #0006}
+.blue-visibility{font:inherit;color:#abd9ff;background:transparent;border:0;padding:8px;cursor:pointer;text-decoration:underline;text-underline-offset:3px}
+.blue-visibility:focus-visible{outline:3px solid #9bd5ff;outline-offset:2px}
+@media(max-width:480px){.blue-companion-trigger{padding:0}.blue-companion-label small{display:block;max-width:130px}}
 </style>
 </head>
 <body>
@@ -426,11 +436,11 @@ footer a{color:var(--soft)}
       <a class="blue-companion-link" href="#blue">Conocer a Blue <span aria-hidden="true">↗</span></a>
       <a class="blue-companion-link" href="#sobre">Mi creador y el estudio <span aria-hidden="true">↗</span></a>
     </nav>
-    <p class="blue-companion-footnote">También puedes seguir explorando a tu ritmo.</p>
+    <p class="blue-companion-footnote">También puedes seguir explorando a tu ritmo.</p><button type="button" class="blue-visibility" id="blue-hide">Ocultar a Blue</button>
   </div>
   <button class="blue-companion-trigger" type="button" aria-controls="blue-help" aria-expanded="false" aria-label="Abrir ayuda de Blue">
-    <span class="blue-companion-avatar" aria-hidden="true"><span class="blue-expression"></span></span>
-    <span class="blue-companion-label">¿Buscas algo?<small>Blue puede orientarte</small></span>
+    <span class="blue-companion-avatar" aria-hidden="true"><img src="img/blue-vivo.svg" alt="" width="78" height="94"></span>
+    <span class="blue-companion-label">¿Buscas algo?<small id="blue-companion-context">Blue puede orientarte</small></span>
   </button>
 </div>
 
@@ -439,9 +449,9 @@ footer a{color:var(--soft)}
 <div class="wrap">
 <div>
 <p>© <span id="anio">2026</span> Blue Lab Studios · <a href="despierta/privacidad/">Política de privacidad de Despierta</a></p>
-<p>Alojado en GitHub Pages. Este sitio no usa cookies, analítica ni recursos de terceros.</p>
+<p>Alojado en GitHub Pages. Este sitio no usa cookies, analítica ni recursos de terceros. Si eliges ocultar a Blue, esa preferencia se guarda en tu navegador.</p>
 </div>
-<p><a href="#contenido">Volver arriba ↑</a></p>
+<p><button type="button" class="blue-visibility" id="blue-show" hidden>Mostrar a Blue</button> <a href="#contenido">Volver arriba ↑</a></p>
 </div>
 </footer>
 
@@ -453,6 +463,11 @@ footer a{color:var(--soft)}
   var trigger = companion.querySelector('.blue-companion-trigger');
   var close = companion.querySelector('.blue-companion-close');
   var tip = document.getElementById('blue-tip');
+  var context = document.getElementById('blue-companion-context');
+  var showBlue = document.getElementById('blue-show');
+  var hideBlue = document.getElementById('blue-hide');
+  var blueVisible = true;
+  try { blueVisible = localStorage.getItem('bls-blue-visible') !== 'false'; } catch (_) {}
   var sections = [
     ['proyectos', 'Aquí están los productos del estudio. ¿Quieres conocer también lo que estamos investigando?'],
     ['investigacion', 'Aquí exploramos nuevas ideas. Puedes conocer Blue IA o volver a los productos.'],
@@ -469,14 +484,29 @@ footer a{color:var(--soft)}
   }
   function update() {
     var show = window.scrollY > 300 || !panel.hidden || companion.contains(document.activeElement);
-    companion.hidden = !show;
+    companion.hidden = !show || !blueVisible;
+    showBlue.hidden = blueVisible;
+    if (!companion.hidden && panel.hidden && !companion.contains(document.activeElement)) {
+      var box = trigger.getBoundingClientRect();
+      var occupied = document.querySelectorAll('main a, main button, main p, main h1, main h2, main h3, footer a, footer button, footer p');
+      var blocked = Array.prototype.some.call(occupied, function (element) {
+        if (element.hidden || element.getClientRects().length === 0) return false;
+        var r = element.getBoundingClientRect();
+        return box.left < r.right + 8 && box.right > r.left - 8 && box.top < r.bottom + 8 && box.bottom > r.top - 8;
+      });
+      if (blocked) companion.hidden = true;
+    }
     var message = initial;
+    var shortMessage = 'Blue puede orientarte';
     sections.forEach(function (item) {
       var section = document.getElementById(item[0]);
-      if (section && section.getBoundingClientRect().top <= window.innerHeight * .45) message = item[1];
+      if (section && section.getBoundingClientRect().top <= window.innerHeight * .45) { message = item[1]; shortMessage = ({ proyectos: 'Conoce los productos', investigacion: 'Explora las ideas', blue: 'Conoce mi historia', sobre: 'Conoce el estudio' })[item[0]]; }
     });
     if (tip.textContent !== message) tip.textContent = message;
+    if (context.textContent !== shortMessage) context.textContent = shortMessage;
   }
+  hideBlue.addEventListener('click', function () { blueVisible = false; try { localStorage.setItem('bls-blue-visible', 'false'); } catch (_) {} panel.hidden = true; trigger.setAttribute('aria-expanded', 'false'); update(); showBlue.focus({ preventScroll: true }); });
+  showBlue.addEventListener('click', function () { blueVisible = true; try { localStorage.setItem('bls-blue-visible', 'true'); } catch (_) {} update(); if (!companion.hidden) trigger.focus(); else document.querySelector('footer a[href="#contenido"]').focus(); });
   trigger.addEventListener('click', function () { setOpen(panel.hidden, false); });
   close.addEventListener('click', function () { setOpen(false, true); });
   companion.querySelectorAll('.blue-companion-link').forEach(function (link) {
@@ -489,6 +519,8 @@ footer a{color:var(--soft)}
   window.addEventListener('scroll', function () {
     if (!ticking) { requestAnimationFrame(function () { update(); ticking = false; }); ticking = true; }
   }, { passive: true });
+  window.addEventListener('resize', update, { passive: true });
+  if ('ResizeObserver' in window) new ResizeObserver(update).observe(document.getElementById('contenido'));
   update();
 })();
 </script>
