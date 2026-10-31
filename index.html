@@ -244,6 +244,18 @@ footer a{color:var(--soft)}
   @keyframes blue-glow{0%,100%{opacity:.75}50%{opacity:1}}
   @keyframes blue-expressions{0%,100%{background-position:-507px -500px}25%{background-position:-600px -500px}50%{background-position:-689px -500px}75%{background-position:-1167px -500px}}
 }
+
+/* Acompañante de navegación: aparece al recorrer la página. */
+.blue-companion{position:fixed;right:max(16px,env(safe-area-inset-right));bottom:max(16px,env(safe-area-inset-bottom));z-index:60;display:flex;flex-direction:column;align-items:flex-end;gap:10px}
+.blue-companion-trigger{display:flex;align-items:center;gap:10px;padding:6px 14px 6px 6px;min-height:64px;color:var(--text);font:inherit;text-align:left;border:1px solid rgba(137,195,255,.45);border-radius:22px;background:#0c1b3a;box-shadow:0 12px 36px #0009;cursor:pointer}
+.blue-companion-trigger:hover{border-color:#a6d9ff;background:#11284d}.blue-companion-trigger:focus-visible,.blue-companion-close:focus-visible,.blue-companion-link:focus-visible{outline:3px solid #9bd5ff;outline-offset:3px}
+.blue-companion-avatar{display:block;width:54px;height:58px;overflow:hidden;border-radius:15px;flex:none;background:#07142e}.blue-companion-avatar .blue-expression{display:block;transform:scale(.72);transform-origin:top left}
+.blue-companion-label{display:block;font-size:.82rem;line-height:1.2;font-weight:800}.blue-companion-label small{display:block;font-weight:500;font-size:.72rem;color:#b6c9e8;margin-top:3px}
+.blue-companion-panel{width:min(340px,calc(100vw - 32px));max-height:min(480px,calc(100dvh - 120px));overflow:auto;border:1px solid rgba(137,195,255,.42);border-radius:22px;background:#0b1935;box-shadow:0 20px 60px #000a;padding:18px;color:#eef5ff}
+.blue-companion-header{display:flex;align-items:center;justify-content:space-between;gap:10px}.blue-companion-header strong{font-size:1rem}.blue-companion-header small{display:block;color:#9fb9dc;font-size:.75rem}.blue-companion-close{display:grid;place-items:center;width:38px;height:38px;border-radius:12px;border:1px solid #34537c;background:#102847;color:#e8f4ff;font-size:1.35rem;cursor:pointer}
+.blue-companion-tip{font-size:.9rem;line-height:1.55;color:#c4d6ef;margin:14px 0}.blue-companion-nav{display:grid;gap:7px}.blue-companion-link{display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:44px;padding:9px 12px;border:1px solid #29476c;border-radius:12px;background:#112849;color:#e9f4ff;text-decoration:none;font-size:.86rem;font-weight:700}.blue-companion-link:hover{background:#1b3962;border-color:#5aaaff}.blue-companion-link span{color:#83c5ff}.blue-companion-footnote{color:#91a9c9;font-size:.72rem;line-height:1.4;margin:12px 0 0}
+@media(max-width:480px){.blue-companion-trigger{padding:5px 12px 5px 5px;border-radius:19px}.blue-companion-label{font-size:.75rem}.blue-companion-label small{display:none}}
+@media (prefers-reduced-motion:no-preference){.blue-companion-trigger:hover .blue-companion-avatar{animation:companion-wave .55s ease-in-out}@keyframes companion-wave{25%{transform:rotate(-6deg)}75%{transform:rotate(6deg)}}}
 </style>
 </head>
 <body>
@@ -388,6 +400,25 @@ footer a{color:var(--soft)}
 </section>
 </main>
 
+<div class="blue-companion" id="blue-companion" hidden>
+  <div class="blue-companion-panel" id="blue-help" role="region" aria-label="Ayuda para navegar con Blue" hidden>
+    <div class="blue-companion-header"><div><strong>Hola, soy Blue 💙</strong><small>Estoy aquí para acompañarte</small></div><button class="blue-companion-close" type="button" aria-label="Cerrar ayuda de Blue">×</button></div>
+    <p class="blue-companion-tip" id="blue-tip">¿Qué buscas? Elige un enlace y te llevo hasta allí.</p>
+    <nav class="blue-companion-nav" aria-label="Enlaces de Blue">
+      <a class="blue-companion-link" href="#proyectos">Explorar proyectos <span aria-hidden="true">↗</span></a>
+      <a class="blue-companion-link" href="#investigacion">Investigación y Blue IA <span aria-hidden="true">↗</span></a>
+      <a class="blue-companion-link" href="#blue">Conocer a Blue <span aria-hidden="true">↗</span></a>
+      <a class="blue-companion-link" href="#sobre">Mi creador y el estudio <span aria-hidden="true">↗</span></a>
+    </nav>
+    <p class="blue-companion-footnote">También puedes seguir explorando a tu ritmo.</p>
+  </div>
+  <button class="blue-companion-trigger" type="button" aria-controls="blue-help" aria-expanded="false" aria-label="Abrir ayuda de Blue">
+    <span class="blue-companion-avatar" aria-hidden="true"><span class="blue-expression"></span></span>
+    <span class="blue-companion-label">¿Buscas algo?<small>Blue puede orientarte</small></span>
+  </button>
+</div>
+
+
 <footer>
 <div class="wrap">
 <div>
@@ -398,6 +429,52 @@ footer a{color:var(--soft)}
 </div>
 </footer>
 
-<script>document.getElementById("anio").textContent = String(new Date().getFullYear());</script>
+<script>
+(function () {
+  document.getElementById('anio').textContent = String(new Date().getFullYear());
+  var companion = document.getElementById('blue-companion');
+  var panel = document.getElementById('blue-help');
+  var trigger = companion.querySelector('.blue-companion-trigger');
+  var close = companion.querySelector('.blue-companion-close');
+  var tip = document.getElementById('blue-tip');
+  var sections = [
+    ['proyectos', 'Aquí están los productos del estudio. ¿Quieres conocer también lo que estamos investigando?'],
+    ['investigacion', 'Aquí exploramos nuevas ideas. Puedes conocer Blue IA o volver a los productos.'],
+    ['blue', '¡Ese soy yo! También puedes conocer el estudio que me imaginó.'],
+    ['sobre', 'Aquí puedes conocer la visión del estudio y encontrar a mi creador.']
+  ];
+  var initial = '¿Qué buscas? Elige un enlace y te llevo hasta allí.';
+  function setOpen(open, returnFocus) {
+    panel.hidden = !open;
+    trigger.setAttribute('aria-expanded', String(open));
+    trigger.setAttribute('aria-label', open ? 'Cerrar ayuda de Blue' : 'Abrir ayuda de Blue');
+    if (!open && returnFocus) trigger.focus();
+    update();
+  }
+  function update() {
+    var show = window.scrollY > 300 || !panel.hidden || companion.contains(document.activeElement);
+    companion.hidden = !show;
+    var message = initial;
+    sections.forEach(function (item) {
+      var section = document.getElementById(item[0]);
+      if (section && section.getBoundingClientRect().top <= window.innerHeight * .45) message = item[1];
+    });
+    if (tip.textContent !== message) tip.textContent = message;
+  }
+  trigger.addEventListener('click', function () { setOpen(panel.hidden, false); });
+  close.addEventListener('click', function () { setOpen(false, true); });
+  companion.querySelectorAll('.blue-companion-link').forEach(function (link) {
+    link.addEventListener('click', function () { setOpen(false, true); });
+  });
+  document.addEventListener('keydown', function (event) {
+    if (event.key === 'Escape' && !panel.hidden) setOpen(false, true);
+  });
+  var ticking = false;
+  window.addEventListener('scroll', function () {
+    if (!ticking) { requestAnimationFrame(function () { update(); ticking = false; }); ticking = true; }
+  }, { passive: true });
+  update();
+})();
+</script>
 </body>
 </html>
